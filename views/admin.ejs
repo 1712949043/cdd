@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>管理员界面</title>
+
+	<link rel="stylesheet" type="text/css" href="admin/admin.css" />
+
+	<script src="admin/jquery.js"></script>
+
+	<script>
+
+        $(function play(){
+
+            $("#panel>li>ul").hide();
+            $(".t1").show();
+            $(".t0").css("background","#11111120");
+            $(".inc1").css("background","#11111120");
+            $(".ol2").hide();
+            $(".ol1").show();
+
+        });
+        $(function(){
+            $("#panel>li").click(function(){
+                $("#panel>li").css("background","#22222250");
+                $(this).css("background","#11111120");
+                $("#panel>li>ul").hide();
+                $(this).find("ul").show();
+
+            });
+
+            $(".box2>li").click(function(){
+
+                $(".box2>li").css("background","#22222250");
+                $(this).css("background","#11111120");
+
+                $(".box2>li ol").hide();
+                $(this).find("ol").show();
+
+            });
+
+
+        });
+
+	</script>
+
+</head>
+<body>
+<form action="/ad" method="get">
+	<div id="box">
+	<ul id="panel">
+
+		<li class="t0"><span class="t">审核信息</span>
+			<ul class="t1">
+				<div class="right">
+					<div class="mana">
+						当前有<%=keyData.length%>条申请需要审核
+						<input type="submit" name="passbt" value="不通过" class="passbt">
+						<input type="submit" name="passbt" value="通过" class="passbt">
+
+					</div>
+					<%for (var i=0;i<keyData.length;i++)
+					{%>
+					<div class="user_info">
+					<div class="choose"><input type="checkbox" name="reviewItem" value=<%=i%>></div>
+						<div class="user_id">用户名:<%=keyData[i].User_ID%></div>
+						<div class="user_name">姓名:<%=keyData[i].Name%></div>
+						<div class="user_card">车牌号:<%=keyData[i].Car_Card%></div>
+						<div class="user_contact">联系方式:<%=keyData[i].Contact%></div>
+					</div>
+					<%}%>
+
+				</div>
+			</ul>
+		</li>
+		<li><span class="t">调整比例</span>
+			<ul>
+				<div class="right">
+					<div class="setct">
+						请输入需要的自由车位数量：
+						<input type="text" name="text">
+						<input type="submit" name="count" value="确定">
+					</div>
+					<div class="ct">
+						现有自由车位数量：<%=Free%> 个<br>
+						不能大于：<%=Most%> 个
+					</div>
+						
+				</div>
+			</ul>
+		</li>
+
+		<li class="t3"><span class="t">查询信息</span>
+			<ul>
+				<div class="right">
+					<ol class="box2">
+
+						<li class="inc1"><span>车位信息查询</span>
+							<ol class="ol1">
+								<div class="right2">
+									<div class="text1">
+										<span>自由车位使用率：<%=per%></span>
+										<input type="submit" name="using" value="查询自由车位"><br>
+									</div>
+									<div class="text2">
+										<span>请输入固定车位号</span>
+										<input type="text" name="textsub">
+										<input type="submit" name="using" value="查询固定车位"><br>
+										<div class="tp">
+											<span id="ljs">用户名</span>
+											<span id="ljs">车牌号</span>
+											<span id="ljs">上次进入时间</span>
+											<span id="ljs">上次离开时间</span>
+										</div>
+										<%for (var i=0;i<len;i++)
+										{%>
+										<div class="useing_info">
+											<div class="useing_id"><%=zxc[i].User_ID%></div>
+											<div class="useing_card"><%=zxc[i].Car_Card%></div>
+											<div class="useing_enter"><%=zxc[i].Enter_Time%></div>
+											<div class="useing_out"><%=zxc[i].Exit_Time%></div>
+										</div>
+										<%}%>
+									</div>
+								</div>
+
+							</ol>
+						</li>
+
+						<li class="inc2"><span>请输入车主姓名以查询信息</span>
+
+							<ol class="ol2">
+								<div class="right2">
+									<input type="text" name="textname">
+									<input type="submit" name="using" value="查询车主信息"><br>
+									<form>
+										<table width="1200" height="360" border="1" align="center" class="ta1" cellspacing="4" bordercolor="#CCCCCC">
+											<tr>
+												<td width="149" height="90" align="center">姓名</td>
+												<td width="450" align="center"><%=ggdata[0].Name%></td>
+												<td width="149" align="center">联系方式</td>
+												<td width="450" align="center"><%=ggdata[0].Contact%></td>
+
+											</tr>
+											<tr>
+												<td height="90" align="center">车牌号</td>
+												<td align="center"><%=ggdata[0].Car_Card%></td>
+												<td align="center">车位号</td>
+												<td align="center"><%=ggdata[0].Order%></td>
+											</tr>
+											<tr>
+												<td height="90" align="center">月费（元）</td>
+												<td align="center">300</td>
+												<td align="center">车位使用情况</td>
+												<td align="center"><%=stat%></td>
+											</tr>
+
+
+										</table>
+									</form>
+
+
+								</div>
+
+							</ol>
+						</li>
+
+					</ol>
+				</div>
+			</ul>
+		</li>
+
+	</ul>
+	</div>
+	</ul>
+	</div>
+</form>
+</body>
+</html>

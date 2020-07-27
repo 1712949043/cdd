@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+
+<!-- Head -->
+<head>
+
+	<title>欢迎</title>
+
+	<!-- Meta-Tags -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- //Meta-Tags -->
+
+	<!-- Style --> <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+
+
+
+</head>
+<!-- //Head -->
+
+<!-- Body -->
+<body>
+
+<h1>停车场管理系统</h1>
+
+<div class="container w3layouts agileits">
+
+	<div class="login w3layouts agileits">
+		<h2>登 录</h2>
+		<form action="/input" method="get">
+			<input type="text" Name="User_ID" placeholder="用户名" required="">
+			<input type="password" Name="User_Password" placeholder="密码" required="">
+
+		<div class="send-button w3layouts agileits">
+				<input type="submit" name="submitName"value="login">
+				<input type="submit" name="submitName"value="register">
+            <br>
+            <label><input type="radio" name="User_Type" value=1><h3>管理员</h3></label>
+            <label><input type="radio" name="User_Type" value=2><h3>固定用户</h3></label>
+			<label><input type="radio" name="User_Type" value=3><h3>游客</h3></label>
+ 			</form>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="register w3layouts agileits">
+		<div class="send-button w3layouts agileits">
+		</div>
+		<div class="clear"></div>
+	</div>
+<div class="register w3layouts agileits">
+	<h2>用户名已存在</h2>
+	<div class="send-button w3layouts agileits">
+		<h1>注册失败</h1>
+	</div>
+	<div class="clear"></div>
+</div>
+	<div class="clear"></div>
+
+</div>
+
+</body>
+<!-- //Body -->
+
+</html>

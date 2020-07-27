@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>应缴费用</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<style type="text/css">
+		body{
+			font-size: 24px;
+			background-color: #66ceff;
+		}
+		.box{
+			margin: auto; position: relative; top: 150px;
+			background-color: #ffffff90;
+			width: 800px; height: 400px;
+		}
+		.start,.now,.cost,.bt{
+			margin: auto;
+			width: 700px; height: 100px; line-height: 100px;
+		}
+		.words{
+			float: left; width: 340px; height: 50px;
+
+		}
+		.im{
+			float: left; width: 358px; height: 50px;
+		}
+		.btn{
+			margin: auto; position: relative; width: 100px; height: 50px;
+			font-size: 22px;
+		}
+	</style>
+</head>
+<body>
+<form action="/pay" method="get">
+<div class="box">
+	<div class="start">
+		<div class="words" align="right">进入时间：</div>
+		<div class="im"><%=keyData[0].Enter_Time%></div>
+	</div>
+	<div class="now">
+		<div class="words" align="right">离开时间：</div>
+		<div class="im"><%=keyData[0].Exit_Time%></div>
+	</div>
+	<div class="cost">
+		<div class="words" align="right">应缴费用：</div>
+		<div class="im"><%=keyData[0].Total_Fee%></div>
+	</div>
+	<div class="bt" align="center">
+		<input type="submit" name="submitname" value="离开" class="btn">
+	</div>
+</div>
+</form>
+</body>
+</html>

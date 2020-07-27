@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>车主信息填写</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script type="text/javascript" src="finish/js/jquery.min.js"></script>
+
+<link href="finish/css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+	<style>
+
+		.bronya{
+			width:1000px;
+		}
+		.ac{
+			color: #ffffff; font-size: 30px; float: right; position: relative;
+		}
+	</style>
+</head>
+<body>
+
+<div class="main">
+	<h1>固定车位申请表</h1>
+	<div class="agileinfo_main_grid">
+		<form action="sub" method="get">
+			<div class="styled-input">
+				<input type="text" name="Name" placeholder="车主姓名" required="" />
+				<spn></spn>
+			</div>
+			<div class="styled-input">
+				<select id="Parking_Type" name="Parking_Type" onchange="change_country(this.value)" class="frm-field required">
+					<option value="null">车位类型</option>
+					<option value="fixed">fixed</option>
+				</select>
+				<span></span>
+			</div>
+			<div class="styled-input">
+				<input type="text" name="Contact" placeholder="电话号码" required="" />
+				<span></span>
+			</div>
+			
+			<div class="clear"></div>
+			
+			<div class="styled-input">
+				<input type="text" name="User_ID" placeholder="用户名" required="" />
+				<span></span>
+			</div>
+			<div class="styled-input">
+				<input type="email" name="Email" placeholder="Email" required="" />
+				<span></span>
+			</div>
+			<div class="styled-input">
+				<input type="text" name="Car_Card" placeholder="车牌号" required="" />
+				<span></span>
+			</div>
+			
+			<div class="clear"></div>
+		
+
+			
+			<div class="styled-input w3_styled_input_textarea">
+				<textarea name="Review" placeholder="填写备注" ></textarea>
+				<span></span>
+			</div>
+			<div class="bronya">
+			<input type="submit" name="submits" value="发送申请" />
+				<h2 class="ac">用户名错误！</h2>
+			</div>
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript" src="finish/js/rangeslider.min.js"></script>
+
+
+<div style="text-align:center;margin:-50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+
+</div>
+</body>
+</html>

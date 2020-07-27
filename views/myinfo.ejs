@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>我的信息</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<style type="text/css">
+		body{
+			font-size: 22px;
+			background-color: #66ceff;
+
+		}
+		.ta1{
+			margin-top: 200px; background-color: #ffffff90;
+		}
+		.com{
+			height: 40px; width: 250px; float: left; margin-left: 15px;
+		}
+		.save,.sub{
+			height: 50px; width: 100px;font-size: 20px;
+		}
+		#logo1{ position:absolute; left:1px; top:1px; }
+	</style>
+	<script src="js/jquery-1.4.2.min.js"></script>
+	<script>
+		var x=1,y=1;
+		function move(){
+			var obj=document.getElementById("logo1")
+			if(x<1400){
+				x=x+2;
+				y++;
+				obj.style.left=x+"px";
+				obj.style.top=y+"px";
+			}
+			else{
+				x=0;
+				y=0;
+				obj.style.left=x+"px";
+				obj.style.top=y+"px";
+			}
+		}
+		setInterval("move()",10);
+	</script>
+</head>
+<body onload="move()">
+<img src="images/logo1.jpg" width="300" id="logo1"/>
+	<form action="/myin" method="get">
+		<table width="1200" height="360" border="1" align="center" class="ta1" cellspacing="4" bordercolor="#CCCCCC">
+		  <tr>
+		    <td width="149" height="90" align="center">姓名</td>
+		    <td width="450" align="center"><%=keyData[0].Name%></td>
+		    <td width="149" align="center">联系方式</td>
+		    <td width="450" align="center">
+		    	<input class="com" type="text" name="com" value="<%=keyData[0].Contact%>">
+		    	<input class="save" type="submit" name="submitname" value="保存">
+		    </td>
+		    
+		  </tr>
+		  <tr>
+		    <td height="90" align="center">车牌号</td>
+		    <td align="center"><%=keyData[0].Car_Card%></td>
+		    <td align="center">车位号</td>
+		    <td align="center"><%=keyData[0].Order%></td>
+		  </tr>
+		  <tr>
+		    <td height="90" align="center">月费（元）</td>
+		    <td align="center">300</td>
+		    <td align="center">车位使用情况</td>
+		    <td align="center"><%=stat%></td>
+		  </tr>
+		  <tr>
+		    <td height="90" colspan="2" align="center">
+		    	<input class="sub" type="submit" name="submitname" value="进入">
+		    </td>
+		    <td colspan="2" align="center">
+				<input class="sub" type="submit" name="submitname" value="退出">
+		    </td>
+		  </tr>
+
+		</table>
+	</form>
+</body>
+</html>

@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>管理员界面</title>
+
+	<link rel="stylesheet" type="text/css" href="admin/admin.css" />
+
+	<script src="admin/jquery.js"></script>
+	
+	<script>
+		$(function play(){
+
+			$("#panel>li>ul").hide();
+			$("#panel>li>.t1").show();
+			$(".t0").css("background","#11111120");
+
+		});
+		$(function(){
+			$("#panel>li").click(function(){
+				$("#panel>li").css("background","#22222250");
+				$(this).css("background","#11111120");
+				$("#panel ul").hide();
+				$(this).find("ul").show();
+
+			});
+		});
+	
+	</script>
+
+	<style>
+		body{
+			background-color: #66ceff;
+			font-color: #ff0;
+		}
+		h2,p{
+			margin: 0px; color: #444;
+		}
+		p{text-align: left; text-indent: 2em;}
+		ul,li{list-style: none; margin: 0px; padding: 0px;}
+		#box{
+			/*width: 1500px; height: 700px; margin: auto;*/
+		}
+		#panel{width: 160px; top: 10px; left: 10px; position: relative;}
+
+		#panel>li{
+			width: 158px; height: 60px; background: #22222250;
+			text-align: center;line-height: 55px;
+			border-radius: 20px 10px 20px 20px;
+		}
+		.t{cursor: pointer; font-size: 22px; color: #333;}
+		.right{
+			width: 1350px; height: 700px; margin: 0px; background: #11111130; border:0px;
+			position: absolute; top:0px; left:158px;border-radius: 30px 50px 50px 50px;font-size: 20px;
+
+		}
+		.mana{
+			width: 1200px; height: 50px;position: relative;margin: auto; margin-top: 5px; margin-bottom: 5px;
+		}
+		.passbt{
+			float: right; width: 150px; height: 50px; background-color:#ffffff70 ; font-size: 18px;
+		}
+		.passbt:hover{
+			background-color:#ffffff40 ;font-size: 22px;
+		}
+		.user_info{
+			width: 1200px; height: 50px;position: relative; margin: auto; border-radius: 5px 5px 5px 5px;
+		}
+		.choose{
+			width: 50px; height: 50px;position: relative; float: left;
+		}
+		.user_name{
+			width: 250px; height: 50px;position: relative; margin: auto;background: #ffffff30;float: left;
+		}
+		.user_card{
+			width: 300px; height: 50px;position: relative; margin: auto;background: #ffffff40;float: left;
+		}
+		.user_contact{
+			width: 600px; height: 50px;position: relative; margin: auto;background: #ffffff50;float: left;
+		}
+
+	</style>
+
+</head>
+<body>
+<form action="admin" method="get">
+	<div id="box">
+	<ul id="panel">
+
+		<li class="t0"><span class="t">审核信息</span>
+			<ul class="t1">
+				<div class="right">
+					<div class="mana">
+						当前有<%=keyData.length%>条申请需要审核
+						<input type="submit" name="passbt" value="不通过" class="passbt">
+						<input type="submit" name="passbt" value="通过" class="passbt">
+
+					</div>
+					<%for (var i=0;i<keyData.length;i++)
+					{%>
+					<div class="user_info">
+					<div class="choose"><input type="checkbox" name="reviewItem" value=<%=i%>></div>
+						<div class="user_name">姓名:<%=keyData[i].Name%></div>
+						<div class="user_card">车牌号:<%=keyData[i].Car_Card%></div>
+						<div class="user_contact">联系方式:<%=keyData[i].Contact%></div>
+					</div>
+					<%}%>
+
+				</div>
+			</ul>
+		</li>
+
+		<li><span class="t">调整比例</span>
+			<ul>
+				<div class="right">
+					
+						
+				</div>
+			</ul>
+		</li>
+
+		<li><span class="t">修改信息</span>
+			<ul>
+				<div class="right">
+				
+				</div>
+			</ul>
+		</li>
+
+	</ul>
+	</div>
+</form>
+</body>
+</html>
